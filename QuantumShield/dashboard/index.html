@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post-Quantum Security Control Plane</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="container">
+
+  <header>
+    <h1>Post-Quantum Security Control Plane</h1>
+    <span class="subtitle">OpenID Connect · KEMTLS · PQ Cryptography</span>
+  </header>
+
+  <!-- STATUS OVERVIEW -->
+  <section class="grid">
+    <div class="card">
+      <h3>Security Status</h3>
+      <div id="status" class="status"></div>
+    </div>
+
+    <div class="card">
+      <h3>Active Cryptography</h3>
+      <ul id="crypto"></ul>
+    </div>
+
+    <div class="card">
+      <h3>Last Event</h3>
+      <div id="lastEvent">—</div>
+    </div>
+  </section>
+
+  <!-- TEST CASE RESULTS -->
+  <section class="card">
+    <h3>Security Test Cases</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Category</th>
+          <th>Event</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody id="events"></tbody>
+    </table>
+  </section>
+
+  <footer>
+    Runtime Observability · Observer-Only · Non-Intrusive
+  </footer>
+
+  <button onclick="exportPDF()" class="export-btn">
+  Export Security Report (PDF)
+  </button>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

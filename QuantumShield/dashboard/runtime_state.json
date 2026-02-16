@@ -1,0 +1,9 @@
+{
+  "transport": "KEMTLS",
+  "kem": "Kyber768",
+  "signature": "Dilithium3",
+  "hash": "SHAKE256",
+  "status": "normal",
+  "timestamp": "2026-02-08T15:10:00Z",
+  "last_failure": null
+}

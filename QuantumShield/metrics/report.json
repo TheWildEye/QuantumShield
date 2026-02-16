@@ -1,0 +1,12 @@
+{
+  "timings": {
+    "kemtls_handshake": [12.431, 11.982, 12.104],
+    "token_signing": [3.201, 3.187, 3.224],
+    "token_verification": [2.041, 2.018, 2.063]
+  },
+  "energy_estimates_joules": {
+    "kemtls_handshake": 0.544,
+    "token_signing": 0.144,
+    "token_verification": 0.091
+  }
+}

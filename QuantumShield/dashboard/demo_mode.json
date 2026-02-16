@@ -1,0 +1,4 @@
+{
+  "enabled": false,
+  "description": "When enabled, dashboard auto-recovers after failures for demo purposes"
+}

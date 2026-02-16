@@ -1,0 +1,22 @@
+[
+  {
+    "step": 1,
+    "title": "Client Initiates KEM Handshake",
+    "description": "The client begins the KEMTLS handshake by sending a key encapsulation request."
+  },
+  {
+    "step": 2,
+    "title": "Server Performs Key Encapsulation",
+    "description": "The server encapsulates a shared secret using the selected post-quantum KEM."
+  },
+  {
+    "step": 3,
+    "title": "Shared Secret Established",
+    "description": "Both client and server derive an identical shared secret without exchanging it directly."
+  },
+  {
+    "step": 4,
+    "title": "Secure Channel Activated",
+    "description": "A symmetric encrypted channel is established using the derived secret."
+  }
+]

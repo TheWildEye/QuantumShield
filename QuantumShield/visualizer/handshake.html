@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEMTLS Handshake Visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #1f2933;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .step {
+            padding: 16px;
+            border-left: 4px solid #d1d5db;
+            margin-bottom: 16px;
+            background: #f9fafb;
+        }
+
+        .step.completed {
+            border-left-color: #2563eb;
+            background: #eef2ff;
+        }
+
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>KEMTLS Handshake Timeline</h1>
+    <div class="meta">
+        Visual representation of post-quantum key establishment
+    </div>
+
+    <div id="stepsContainer"></div>
+
+    <footer>
+        Generated from runtime handshake metadata
+    </footer>
+</div>
+
+<script>
+    Promise.all([
+        fetch("steps.json").then(r => r.json()),
+        fetch("handshake_state.json").then(r => r.json()).catch(() => ({ completed_steps: [] }))
+    ]).then(([steps, state]) => {
+        const container = document.getElementById("stepsContainer");
+
+        steps.forEach(step => {
+            const div = document.createElement("div");
+            div.className = "step";
+
+            if (state.completed_steps.includes(step.step)) {
+                div.classList.add("completed");
+            }
+
+            div.innerHTML = `
+                <div class="step-title">
+                    Step ${step.step}: ${step.title}
+                </div>
+                <div class="step-desc">
+                    ${step.description}
+                </div>
+            `;
+
+            container.appendChild(div);
+        });
+    });
+</script>
+</body>
+</html>
